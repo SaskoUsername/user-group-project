@@ -4,12 +4,12 @@ services:
   app:
     image: user-group-project
     ports:
-      - "8000:8000"
+      - "8000:8001"
     volumes:
       - ".:/opt/app"
     depends_on:
       - db
-    command: python manage.py runserver 0.0.0.0:8000
+    command: python manage.py runserver 0.0.0.0:8001
     build:
       context: .
       dockerfile: Dockerfile
