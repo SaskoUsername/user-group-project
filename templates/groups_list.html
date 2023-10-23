@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block layout_content %}
+    {% if request.user.is_authenticated %}
+        <table class="table table-striped table-properties">
+            <thead>
+            <tr>
+                <th class="border" scope="col">Group name</th>
+                <th class="border" scope="col">Group description</th>
+                {% if request.user.is_superuser %}
+                    <th class="border" scope="col">Actions</th>
+                {% endif %}
+            </tr>
+            </thead>
+            <tbody>
+            {% for group in groups %}
+                <tr>
+                    <td class="border"><a class="text text-dark text-decoration-none"
+                                          href="{% url "list_of_users" group.id %}"> {{ group.group_name }} </a></td>
+                    <td class="border">{{ group.description }}</td>
+                    {% if request.user.is_superuser %}
+                        <td class="border">
+                            <a href="{% url 'update_group' group.id %}" class="btn btn-outline-secondary">Edit</a>
+                            <a href="{% url 'delete_object' group.id %}"
+                               class="btn btn-outline-dark">Delete</a>
+                        </td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'create_group' %}" class="btn btn-dark"> Create a new group</a>
+    {% else %}
+        <h1 class="text text-secondary" style="text-align: center;"> Spreadsheets will appear here after
+            authentication </h1>
+    {% endif %}
+
+{% endblock %}
