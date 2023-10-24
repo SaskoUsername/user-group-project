@@ -30,7 +30,7 @@ msbuild.wrn
 appsettings.json
 venv/
 db.sqlite3
-.env
+test_task/.env
 .idea
 media
 
