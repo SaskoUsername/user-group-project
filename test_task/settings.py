@@ -30,7 +30,7 @@ SECRET_KEY = getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = getenv('DEBUG', default=False)
 
-ALLOWED_HOSTS = ['.groups-redactor.pp.ua']
+ALLOWED_HOSTS = ['groups-redactor.pp.ua']
 
 # Application definition
 
