@@ -34,6 +34,6 @@ services:
       - "5000:5000"
     restart: on-failure
     environment:
-      TOKEN_BOT: ${BOT_TOKEN}
+      BOT_TOKEN: ${BOT_TOKEN}
 
     command: python manage.py runbot
