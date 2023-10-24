@@ -31,9 +31,10 @@ appsettings.json
 venv/
 db.sqlite3
 test_task/.env
+./.env
 .idea
 media
-.env
+
 
 # Visual Studio 2015
 .vs/
