@@ -149,4 +149,4 @@ PASSWORD_HASHERS = [
 ]
 
 # Telegram bot
-TELEGRAM_BOT_API_KEY = getenv('API_TOKEN')
+TELEGRAM_BOT_API_KEY = getenv('BOT_TOKEN')

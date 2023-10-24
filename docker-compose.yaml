@@ -25,3 +25,15 @@ services:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB}
+
+  tgbot:
+    image: bots:latest
+    expose:
+      - "5000"
+    ports:
+      - "5000:5000"
+    restart: on-failure
+    environment:
+      TOKEN_BOT: ${BOT_TOKEN}
+
+    command: python manage.py runbot
