@@ -16,7 +16,7 @@ services:
     volumes:
       - ".:/opt/app"
 
-    command: python manage.py runbot 0.0.0.0:5000
+    command: python manage.py runbot
     build:
       context: .
       dockerfile: Dockerfile
