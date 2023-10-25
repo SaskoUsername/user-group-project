@@ -8,9 +8,7 @@
                 <th class="border" scope="col">Username</th>
                 <th class="border" scope="col">Date created</th>
                 <th class="border" scope="col">Group</th>
-                {% if request.user.is_superuser %}
-                    <th class="border" scope="col">Actions</th>
-                {% endif %}
+                <th class="border" scope="col">Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -27,7 +25,6 @@
                     </td>
                 </tr>
             {% endfor %}
-
             </tbody>
         </table>
         <a class="btn btn-dark" href="{% url 'create_user' current_group.id %}"> Create a new user </a>
