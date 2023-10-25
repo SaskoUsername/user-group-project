@@ -36,6 +36,9 @@ services:
     environment:
       TOKEN_BOT: ${BOT_TOKEN}
 
+    depends_on:
+      - db
+
     command: python manage.py runbot
     build:
       context: .
