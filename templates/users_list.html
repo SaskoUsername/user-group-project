@@ -19,13 +19,12 @@
                     <td class="border">{{ user.username }} </td>
                     <td class="border">{{ user.date_joined }}</td>
                     <td class="border">{{ current_group.group_name }}</td>
-                    {% if request.user.is_superuser %}
-                        <td class="border">
-                            <a href="{% url 'update_user' user.id %}" class="btn btn-outline-secondary">Edit</a>
-                            <a href="{% url 'delete_object' user.id %}"
-                               class="btn btn-outline-dark">Delete</a>
-                        </td>
-                    {% endif %}
+
+                    <td class="border">
+                        <a href="{% url 'update_user' user.id %}" class="btn btn-outline-secondary">Edit</a>
+                        <a href="{% url 'delete_object' user.id %}"
+                           class="btn btn-outline-dark">Delete</a>
+                    </td>
                 </tr>
             {% endfor %}
 
