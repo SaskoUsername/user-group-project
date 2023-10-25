@@ -150,3 +150,7 @@ PASSWORD_HASHERS = [
 
 # Telegram bot
 TELEGRAM_BOT_API_KEY = getenv('BOT_TOKEN')
+
+if not DEBUG:
+    CSRF_TRUSTED_ORIGINS = ['https://groups-redactor.pp.ua']
+
