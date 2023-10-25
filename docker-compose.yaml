@@ -1,6 +1,26 @@
 version: "3"
 
 services:
+  tgbot:
+    image: bots
+    expose:
+      - "5000"
+    ports:
+      - "5000:5000"
+    restart: on-failure
+    environment:
+      TOKEN_BOT: ${BOT_TOKEN}
+
+    depends_on:
+      - db
+    volumes:
+      - ".:/opt/app"
+
+    command: python manage.py runbot 0.0.0.0:5000
+    build:
+      context: .
+      dockerfile: Dockerfile
+
   app:
     image: user-group-project
     ports:
@@ -25,21 +45,3 @@ services:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB}
-
-  tgbot:
-    image: bots
-    expose:
-      - "5000"
-    ports:
-      - "5000:5000"
-    restart: on-failure
-    environment:
-      TOKEN_BOT: ${BOT_TOKEN}
-
-    depends_on:
-      - db
-
-    command: python manage.py runbot
-    build:
-      context: .
-      dockerfile: Dockerfile
