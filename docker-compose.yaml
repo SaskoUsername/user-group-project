@@ -1,26 +1,6 @@
 version: "3"
 
 services:
-  tgbot:
-    image: user-group-project
-    expose:
-      - "5000"
-    ports:
-      - "5000:5000"
-    restart: on-failure
-    environment:
-      TOKEN_BOT: ${BOT_TOKEN}
-
-    depends_on:
-      - db
-    volumes:
-      - ".:/opt/app"
-
-    command: python manage.py runbot
-    build:
-      context: .
-      dockerfile: Dockerfile
-
   app:
     image: user-group-project
     ports:
