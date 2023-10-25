@@ -37,3 +37,6 @@ services:
       TOKEN_BOT: ${BOT_TOKEN}
 
     command: python manage.py runbot
+    build:
+      context: .
+      dockerfile: Dockerfile
